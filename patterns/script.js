@@ -1,5 +1,14 @@
 'use strict';
 
+const isArray = Array.isArray || function (arr) {
+    return Object.prototype.toString.call(arr) === "[object Array]";
+}
+
+const isObject = function (obj) {
+    return Object.prototype.toString.call(obj) === "[object Object]";
+}
+
+
 class Graphic {
     constructor() { }
 
@@ -13,7 +22,12 @@ class Graphic {
 }
 
 class Dot {
+    getId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
     constructor(x, y) {
+        this.id = this.getId();
+        this.type = 'dot';
         this.x = x;
         this.y = y;
     }
@@ -31,8 +45,10 @@ class Dot {
 
 
 class Circle extends Dot {
-    constructor(x, y, radius) {
-        super(x, y);
+
+    constructor(x, y, id, radius) {
+        super(x, y, id);
+        this.type = 'circle';
         this.radius = radius;
     }
 
@@ -92,6 +108,31 @@ class ImageEditor {
         });
         this.all.add(group)
     }
+
+    getObj(id, type) {
+        var paths = [];
+
+        function findPath(branch, str, prevBranch = null) {
+            Object.keys(branch).forEach(function (key) {
+                if (isArray(branch[key]) || isObject(branch[key])) {
+                    findPath(branch[key], str ? str + "." + key : key, branch);
+                    // console.log(branch, key, branch[key]);
+                }
+                else {
+                    // paths.push(str ? str + ' ' + branch.type + '_' + branch.id : key + ' ' + branch.type + ' ' + branch.id);
+                    // console.log(branch);
+                    if (branch.id === id && type === "element") { paths = branch; } else if (branch.id === id && type === "group") {
+                        paths = prevBranch;
+                    }
+                    return;
+                }
+            });
+        }
+
+        findPath(this.all, "");
+        return paths;
+    }
+
 }
 // console.log(CompoundGraphic);
 // console.log(ImageEditor);
@@ -103,11 +144,94 @@ const newIE = new ImageEditor();
 
 newIE.load();
 newIE.groupSelected([new Circle(5, 5, 10), new Circle(2, 2, 4)]);
-newIE.groupSelected([new Circle(5, 5, 10), new Circle(2, 2, 4)]);
+newIE.groupSelected([]);
+// newIE.groupSelected([new Circle(5, 5, 10), new Circle(2, 2, 4)]);
 
 console.log(newIE);
 // console.log(newIE.all.load(new Circle(1, 1, 1)));
-console.log(newIE.all);
+// console.dir(newIE.all);
 newIE.groupSelected(newIE.all.children);
 // newIE.load()
-console.log(newIE);
+console.dir(newIE);
+
+
+
+function three(tr) {
+    var paths = [];
+
+    function findPath(branch, str) {
+        Object.keys(branch).forEach(function (key) {
+            if (isArray(branch[key]) || isObject(branch[key])) {
+                findPath(branch[key], str ? str + "." + key : key);
+                // console.log(branch, key, branch[key]);
+            }
+            else {
+                paths.push(str ? str + ' ' + branch.type + '_' + branch.id : key + ' ' + branch.type + ' ' + branch.id);
+                // console.log(branch);
+
+            }
+        });
+    }
+
+    findPath(tr, "");
+    return paths;
+}
+
+const treeElemnts = three(newIE);
+
+
+const getClearTree = (str) => {
+    const newArr = str.map(item => {
+        let index = 0;
+        for (let i = item.length - 1; i < item.length; i--) {
+            if (item[i] === '.') {
+                index = i;
+                break;
+            }
+
+        }
+        // console.log(index);
+        return item.slice(3);
+    });
+    const prepearedArr = [];
+    // console.log(newArr);
+    newArr.forEach(item => {
+        if (item !== prepearedArr[prepearedArr.length - 1]) {
+            prepearedArr.push(item);
+        }
+    })
+    return prepearedArr;
+};
+// console.log(treeElemnts);
+// getClearTree(treeElemnts);
+const editedArrStr = getClearTree(treeElemnts);
+// console.log(editedArrStr);
+
+const getGraficTree = (arr) => {
+
+
+    const findInterface = (str, index) => {
+        // console.log(str, str[11])
+        if (str[11] === ' ') {
+            console.log(`${index}${str.split(" ")[1]}`);
+        } else {
+            console.log(`${index}group`);
+            index += '+';
+            findInterface(str.slice(11), index);
+        }
+    }
+
+
+    for (let i = 0; i < arr.length; i++) {
+        let counter = '';
+        findInterface(arr[i], counter);
+    }
+
+    console.log("console.log(newIE.getObj(''));");
+}
+getGraficTree(editedArrStr);
+
+// getGraficTree(getClearTree(treeElemnts), 1);
+
+
+// console.log(newIE.updateCommentRating(''));
