@@ -1,0 +1,12 @@
+.window {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+.circle, .rectangle {
+    position: absolute;
+}
+body, *{
+    margin: 0;
+    padding: 0;
+}
