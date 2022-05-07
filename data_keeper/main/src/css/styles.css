@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -427,3 +428,153 @@ table tr:nth-child(even) {
     margin-left: 50px; }
   .adding-teacher-form label[for="note"] {
     display: block; }
+
+.slider {
+  margin-top: 50px; }
+
+.slidecontainer {
+  width: 100%;
+  margin: 0 auto;
+  position: relative; }
+
+.icons {
+  width: 100%; }
+
+.slide {
+  margin: 0 20px; }
+
+.slick-prev {
+  left: -40px;
+  right: auto; }
+
+.slick-next {
+  right: -40px;
+  left: auto; }
+
+.slick-prev, .slick-next {
+  background-color: transparent;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none; }
+
+.slick-prev {
+  border-top: 2px solid #585858;
+  border-left: 2px solid #585858;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg) translateY(-50%); }
+
+.slick-next {
+  border-bottom: 2px solid #585858;
+  border-right: 2px solid #585858;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg) translate(5px, calc(-50% + 5px)); }
+
+.slick-prev:before, .slick-next:before {
+  content: ''; }
+
+@media (max-width: 767px) {
+  .slidecontainer {
+    max-width: 80%; }
+  .slidecontainer .icons > button {
+    display: none !important; }
+  .slide {
+    margin: 0 10px;
+    width: calc(20vw - 20px); } }
+
+@media (max-width: 480px) {
+  .slide {
+    margin: 0 20px;
+    width: calc(40vw - 40px); } }
+
+/* 
+	Slick generated items
+	Extracted from their CSS file
+*/
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.slick-list.draggable {
+  cursor: pointer;
+  cursor: hand; }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: ''; }
+
+.slick-track:after {
+  clear: both; }
+
+.slick-loading .slick-track {
+  visibility: hidden; }
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px; }
+
+[dir='rtl'] .slick-slide {
+  float: right; }
+
+.slick-slide img {
+  display: block; }
+
+.slick-slide.slick-loading img {
+  display: none; }
+
+.slick-slide.dragging img {
+  pointer-events: none; }
+
+.slick-initialized .slick-slide {
+  display: block; }
+
+.slick-loading .slick-slide {
+  visibility: hidden; }
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent; }
+
+.slick-arrow.slick-hidden {
+  display: none; }
+
+.card {
+  padding: 0 60px;
+  box-sizing: border-box; }

@@ -325,6 +325,61 @@
         </div>
 
     </section>
+
+    <section class="slider out-wrapper">
+        <h1 class="section-title">Favorites</h1>
+        <div class="slidecontainer card wrapper">
+            <div class="icons">
+                <div class="slide">
+                    <div class="teacher-item">
+                        <div class="teacher-item__img-container"> <img class="teacher-item__img"
+                                src="https://randomuser.me/api/portraits/men/85.jpg" alt="teacher"></div>
+                        <h2 class="teacher-item__name">John<br> Burke</h2>
+                        <p class="teacher-item__subject">Chemistry</p>
+                        <p class="teacher-item__location">Denmar</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="teacher-item">
+                        <div class="teacher-item__img-container"> <img class="teacher-item__img"
+                                src="https://randomuser.me/api/portraits/men/85.jpg" alt="teacher"></div>
+                        <h2 class="teacher-item__name">John<br> Burke</h2>
+                        <p class="teacher-item__subject">Chemistry</p>
+                        <p class="teacher-item__location">Denmar</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="teacher-item">
+                        <div class="teacher-item__img-container"> <img class="teacher-item__img"
+                                src="https://randomuser.me/api/portraits/men/85.jpg" alt="teacher"></div>
+                        <h2 class="teacher-item__name">John<br> Burke</h2>
+                        <p class="teacher-item__subject">Chemistry</p>
+                        <p class="teacher-item__location">Denmar</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="teacher-item">
+                        <div class="teacher-item__img-container"> <img class="teacher-item__img"
+                                src="https://randomuser.me/api/portraits/men/85.jpg" alt="teacher"></div>
+                        <h2 class="teacher-item__name">John<br> Burke</h2>
+                        <p class="teacher-item__subject">Chemistry</p>
+                        <p class="teacher-item__location">Denmar</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="teacher-item">
+                        <div class="teacher-item__img-container"> <img class="teacher-item__img"
+                                src="https://randomuser.me/api/portraits/men/85.jpg" alt="teacher"></div>
+                        <h2 class="teacher-item__name">John<br> Burke</h2>
+                        <p class="teacher-item__subject">Chemistry</p>
+                        <p class="teacher-item__location">Denmar</p>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+
+    </section>
     <section class="info out-wrapper">
         <div class="info__paragraphs wrapper">
             <p class="info__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae hic explicabo
@@ -354,6 +409,23 @@
             <button class="button-adding-teacher">Add teacher</button>
         </div>
     </footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+    <script>$(document).ready(function () {
+            $('.icons').slick({
+                //Basic settings
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                swipeToSlide: true,
+                touchMove: true,
+                ltr: true,
+                infinite: true,
+                variableWidth: true,
+                dots: false,
+                pauseOnHover: false
+            });
+        });</script>
 </body>
 
 </html>

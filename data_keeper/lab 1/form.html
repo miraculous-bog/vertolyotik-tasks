@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" class="adding-teacher-form">
+        <label for="name">Name</label>
+        <input class="item-form__full" type="text" name="name" placeholder="Enter name">
+
+        <label for="speciality">Speciality</label>
+        <select class="item-form__full" name="speciality">
+            <option value="Language">Language</option>
+            <option value="Math" selected>Math</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+        </select>
+        <div class="adding-teacher-form__container">
+            <div class="adding-teacher-form__left-column">
+                <label for="country">Country</label>
+                <select class="item-form__part" name="country">
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="UK" selected>UK</option>
+                    <option value="US">US</option>
+                    <option value="Canada">Canada</option>
+                </select>
+
+                <label for="city">City</label>
+                <input class="item-form__part" type="text" name="city" placeholder="">
+            </div>
+            <div class="adding-teacher-form__right-column">
+                <label for="email">Email</label>
+                <input class="item-form__part" type="email" name="email">
+
+                <label for="phone">Phone</label>
+                <input class="item-form__part" type="phone" name="phone">
+            </div>
+        </div>
+
+        <label for="date">Date of birth</label>
+        <input type="text" id="date" placeholder="dd/mm/yyyy">
+        <div class="adding-teacher-form__radio">
+            <label for="sex">Sex</label>
+            <label for="Male">Male</label>
+            <input type="radio" name="sex" value="Male">
+
+            <label for="Female">Female</label>
+            <input type="radio" name="sex" value="Female">
+        </div>
+        <label for="color">Background color</label>
+        <input class="item-form__part" type="color" name="color" value="#f6b73c">
+
+        <label for="note">Note (optional)</label>
+        <textarea class="item-form__full" name="note" id="" cols="30" rows="10"></textarea>
+
+        <button class="button-adding-teacher" id="submit" type="submit">Add</button>
+    </form>
+</body>
+
+</html>
