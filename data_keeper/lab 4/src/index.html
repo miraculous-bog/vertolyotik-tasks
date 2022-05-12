@@ -111,6 +111,11 @@
             <div class="searched-filed">
                 <input class="searched-filed__input" type="text" placeholder="Name, note or age to search" />
                 <button class="searched-filed__button">Search</button>
+                <div class="searched-filed__pannel">
+                    <ul class="searched-filed__pannel-list">
+
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="bottom-header wrapper">
@@ -140,15 +145,12 @@
             <div class="filter__input">
                 <label for="region">Region</label>
                 <select name="region" id="region">
-                    <option value="North America">North America</option>
-                    <option value="South America" selected>South America</option>
-                    <option value="Europe">Europe</option>
-                    <option value="Asia">Asia</option>
+
                 </select>
             </div>
             <div class="filter__input">
-                <label for="sex">Sex</label>
-                <select name="sex" id="sex">
+                <label for="gender">Sex</label>
+                <select name="gender" id="gender">
                     <option value="Male">Male</option>
                     <option value="Female" selected>Female</option>
                 </select>
@@ -259,106 +261,26 @@
         <div class="statistic-containter wrapper">
             <table class="statistic-containter__table">
                 <tr class="statistic-containter__titles">
-                    <th>Name</th>
-                    <th>Speciality</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Nationality</th>
+                    <th class="title-static" data-type="full_name">Name</th>
+                    <th class="title-static" data-type="course">Speciality</th>
+                    <th class="title-static" data-type="age">Age</th>
+                    <th class="title-static" data-type="gender">Gender</th>
+                    <th class="title-static" data-type="country">Nationality</th>
                 </tr>
+
                 <!-- <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Diasy Alexander</td>
+                    <td>Chemistry</td>
+                    <td>28</td>
+                    <td>Female</td>
+                    <td>Vietnam</td>
                 </tr> -->
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
-
-                <tr>
-                    <td>Diasy Alexander</td>
-                    <td>Chemistry</td>
-                    <td>28</td>
-                    <td>Female</td>
-                    <td>Vietnam</td>
-                </tr>
 
 
             </table>
             <div class="statistic-containter__pagintation wrapper">
                 <ul class="statistic-containter__pagintation-list">
-                    <li class="statistic-containter__pagintation-item"><a href="#" data-page="">1</a></li>
-                    <li class="statistic-containter__pagintation-item"><a href="#" data-page="">2</a></li>
-                    <li class="statistic-containter__pagintation-item"><a href="#" data-page="">3</a></li>
-                    <li class="statistic-containter__pagintation-item"><a href="#" data-page="">...</a></li>
-                    <li class="statistic-containter__pagintation-item"><a href="#" data-page="">last</a></li>
+
                 </ul>
             </div>
         </div>

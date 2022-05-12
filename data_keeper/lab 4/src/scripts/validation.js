@@ -39,14 +39,14 @@ const validationDataOb = (full_name, gender, note, state, city, country, age, ph
 }
 
 const validationData = (data) => {
-    return data.map(item => {
-        const dataVal = validationDataOb(item.full_name, item.gender, item.note, item.state, item.city, item.country, item.age, item.phone, item.email);
-        if (dataVal) {
-            return `id item: ${item.id}\n ${dataVal}`;
-        } else {
-            return `id викладача: ${item.id}\n - Вся інформація коректна!`
-        }
-    })
+
+    const dataVal = validationDataOb(data.full_name, data.gender, data.note, data.state, data.city, data.country, data.age, data.phone, data.email);
+    if (dataVal) {
+        return `${dataVal}`;
+    } else {
+        return true;
+    }
+
 };
 
 export { validationData };

@@ -1,6 +1,9 @@
 import { getOption } from "./markups.js";
+import { getId } from "./functions.js";
+import { validationData } from "./validation.js";
+import { data } from "./main.js";
 const form = document.querySelector(".adding-teacher-form");
-
+const formCart = document.querySelector('#Form-cart');
 
 const getTitle = (data, type) => {
     const result = [];
@@ -37,28 +40,57 @@ function handleSubmit(event) {
     const emailInput = elements.email;
     const phoneInput = elements.phone;
     const dateInput = elements.date;
-    const sexInput = elements.gender;
+    const genderInput = elements.gender;
     const colorInput = elements.color;
     const noteInput = elements.note;
 
 
-    const data = {
+    const obj = {
         [nameInput.name]: nameInput.value,
         [specialityInput.name]: specialityInput.value,
         [countryInput.name]: countryInput.value,
         [cityInput.name]: cityInput.value,
         [emailInput.name]: emailInput.value,
         [phoneInput.name]: phoneInput.value,
-        [dateInput.name]: dateInput.value,
-        [sexInput.name]: sexInput.value,
-        [colorInput.name]: colorInput.value,
+        [dateInput.name]: Number(dateInput.value),
+        gender: genderInput.value,
+        bg_color: colorInput.value,
         [noteInput.name]: noteInput.value,
+        id: getId(),
 
+        favorite: false,
+
+        title: 'Mr/Ms',
+        state: countryInput.value,
+
+
+        postcode: null,
+        coordinates: {
+            latitude: null,
+            longitude: null,
+        },
+        timezone: {
+            offset: null,
+            description: null,
+        },
+
+        age: 20,
+        picture_large: null,
+        picture_thumbnail: null,
     };
 
-    console.log(data);
+    console.log(obj);
+    const resultValidation = validationData(obj);
+    if (resultValidation === true) {
+        formCart.style.display = "none";
+        alert("Викладач доданий успішно");
+        data.push(obj);
+        console.log(data);
+    } else {
+        alert(resultValidation);
+    }
 }
 
 console.log(submit);
-form.addEventListener('submit', handleSubmit);
-export { getMarkupSelect };
+// form.addEventListener('submit', handleSubmit);
+export { getMarkupSelect, handleSubmit };

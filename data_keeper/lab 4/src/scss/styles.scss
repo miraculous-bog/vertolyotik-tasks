@@ -99,6 +99,18 @@ section {
     padding: 10px 22px;
 }
 
+.searched-filed__pannel-item {
+    background-color: #f9f5f9;
+    color: #cc4836;
+    width: 50%;
+    padding: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    &:hover {
+        background-color: #cc4836;
+        color: #f9f5f9;
+    }
+}
 .bottom-header {
     @extend %flex;
     align-items: center;
@@ -342,6 +354,13 @@ table tr:nth-child(even) {
     margin-right: 23px;
     margin-top: 35px;
 }
+.statistic-containter__pagintation-list {
+
+    cursor: pointer;
+    .pagination-active {
+        color:#cc4836;
+    }
+}
 @media (max-width: 768px) { 
     .statistic-containter__table {
 
@@ -359,6 +378,7 @@ table tr:nth-child(even) {
     .statistic-containter__pagintation-list {
         display: inline-block;
         margin-left: 30%;
+
     }
 }
 

@@ -77,5 +77,12 @@ const transformRightDataSecond = additionalUsers.map(item => {
     };
 });
 
-
-export { getId, randomInteger, getFavorite, transformRightDataFirst, transformRightDataSecond };
+const sortByStr = (data, type) => {
+    const resultArr = [...data];
+    return resultArr.sort((a, b) => a[`${type}`] > b[`${type}`] ? 1 : -1);
+}
+const sortByAge = (data) => {
+    const resultArr = [...data];
+    return resultArr.sort((a, b) => a.age > b.age ? 1 : -1);
+}
+export { getId, randomInteger, getFavorite, transformRightDataFirst, transformRightDataSecond, sortByStr, sortByAge };

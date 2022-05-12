@@ -84,33 +84,23 @@ const getTeacherPopup = (data) => {
 const getOption = (item) => {
     return `<option value="${item}">${item}</option>`;
 }
-// {
-//     id: getId(),
-//     course: course[randomInteger(0, 10)],
-//     bg_color: bgColor[randomInteger(0, 8)],
-//     favorite: getFavorite(),
-//     gender: item.gender,
-//     title: item.name.title,
-//     full_name: item.name.first + ' ' + item.name.last,
-//     city: item.location.state,
-//     state: item.location.state,
-//     country: item.location.country,
-//     postcode: item.location.postcode,
-//     coordinates: {
-//         latitude: item.location.coordinates.latitude,
-//         longitude: item.location.coordinates.longitude,
-//     },
-//     timezone: {
-//         offset: item.location.timezone.offset,
-//         description: item.location.timezone.description,
-//     },
-//     email: item.email,
-//     b_date: item.dob.date,
-//     age: item.dob.age,
-//     phone: item.phone,
-//     picture_large: item.picture.large,
-//     picture_thumbnail: item.picture.thumbnail,
-//     note: 'Lorem Ipsum',
-// }
+const getSearchedTeacher = (id, teacherName) => {
+    return ` <li class="searched-filed__pannel-item" data-id="${id}">
+    ${teacherName}
+</li>`;
+}
+const getTabelLine = (data) => {
+    return `<tr class="tabel-filed">
+    <td>${data.full_name}</td>
+    <td>${data.course}</td>
+    <td>${data.age}</td>
+    <td>${data.gender}</td>
+    <td>${data.country}</td>
+</tr>`;
+}
 
-export { getTeacherNetItem, getFavoriteNetItem, getTeacherPopup, getOption };
+const getPaginationNum = (num) => {
+    return `<li class="statistic-containter__pagintation-item" data-page="${num}">${num}</li>`
+}
+
+export { getTeacherNetItem, getFavoriteNetItem, getTeacherPopup, getOption, getSearchedTeacher, getTabelLine, getPaginationNum };
