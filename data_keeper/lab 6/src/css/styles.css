@@ -616,3 +616,8 @@ table tr:nth-child(even) {
 .card {
   padding: 0 60px;
   box-sizing: border-box; }
+
+#map {
+  display: block;
+  width: 180px;
+  height: 180px; }

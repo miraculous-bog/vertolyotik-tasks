@@ -25,7 +25,15 @@ const getMarkupSelect = (data, type) => {
 
     return allMarkups.join("");
 }
+const getSelect = (data, type) => {
+    const allMarkups = getTitle(data, type).map(item => {
+        if (item !== null) {
+            return item;
+        }
+    });
 
+    return allMarkups;
+}
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -104,4 +112,4 @@ function handleSubmit(event) {
 
 // console.log(submit);
 // form.addEventListener('submit', handleSubmit);
-export { getMarkupSelect, handleSubmit };
+export { getMarkupSelect, handleSubmit, getSelect };

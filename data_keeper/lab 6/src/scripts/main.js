@@ -1,10 +1,11 @@
 // import { randomUserMock, additionalUsers } from './data.js';
 // import { bgColor, course } from './static-data.js'
-import { transformData, sortByStr, sortByAge, daysLeft } from './functions.js';
+import { transformData, sortByStr, sortByAge, daysLeft, randomInteger, timer } from './functions.js';
 // dayjs().format();
 console.log(new dayjs());
 import { getTeacherNetItem, getFavoriteNetItem, getTeacherPopup, getOption, getSearchedTeacher, getTabelLine, getPaginationNum } from './markups.js';
-import { getMarkupSelect, handleSubmit } from './form.js'
+import { getMarkupSelect, handleSubmit, getSelect } from './form.js'
+import { bgColor } from './static-data.js';
 // import dayjs from 'dayjs';
 // console.log(dayjs);
 
@@ -85,6 +86,29 @@ const handlerClickTeacher = (e) => {
 
         refs.TeacherInfoCart.innerHTML = '';
         refs.TeacherInfoCart.insertAdjacentHTML('afterbegin', getTeacherPopup(dataForPopup));
+        // Creating map options
+        if (dataForPopup.coordinates.latitude) {
+
+
+            var mapOptions = {
+                center: [dataForPopup.coordinates.latitude, dataForPopup.coordinates.longitude],
+                zoom: 170
+            }
+
+            // Creating a map object
+            var map = new L.map('map', mapOptions);
+
+            // Creating a Layer object
+            var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+            // Adding layer to the map
+            map.addLayer(layer);
+        }
+        const hb = document.querySelector(".hb");
+
+
+        timer(hb, dataForPopup.b_date.slice(5, 7), dataForPopup.b_date.slice(8, 10));
+        // setInterval(timer, 1000);
         refs.TeacherInfoCart.style.display = "block";
     } else if (element.closest(".teacher-item__icon")) {
 
@@ -205,6 +229,31 @@ const handlerSort = (e) => {
             // getPaginationController(data);
             refs.countrySelect.innerHTML = getMarkupSelect(data, 'country');
             refs.specialitySelect.innerHTML = getMarkupSelect(data, 'course');
+            const labels = getSelect(data, 'course');
+            const dataLabels = labels.map(item => {
+                let i = 0;
+                data.forEach(itemData => itemData.course === item ? i++ : null);
+                return i;
+            });
+            const dataP = {
+                labels: labels,
+                datasets: [{
+                    label: 'All courses quantity',
+                    data: dataLabels,
+                    backgroundColor: labels.map(item => bgColor[randomInteger(0, labels.length)]),
+                    hoverOffset: 4
+                }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: dataP,
+                options: {}
+            };
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
         })
         .catch(error => console.log(error));
 }());

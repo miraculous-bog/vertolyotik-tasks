@@ -52,8 +52,9 @@ const getFavoriteNetItem = (data) => {
 const getTeacherPopup = (data) => {
     const name = data.full_name.split(" ");
     let img;
+    let map;
     data.picture_large === null ? img = `<h2 class="modal-body__img modal-body__h2">${name[0][0]}.${name[1][0]}</h2>` : img = `<img class="modal-body__img" src="${data.picture_large}" alt="teachr-details">`;
-
+    data.coordinates.latitude !== null ? map = `<a class="modal-body__text-info-map" href="#">toggle map</a><div id="map"></div>` : `<p>map is not exist</p>`;
 
     return `<div class="modal-content">
     <div class="modal-content__line">
@@ -67,13 +68,14 @@ const getTeacherPopup = (data) => {
             <p class="modal-body__info-subject">${data.course}</p>
             <p class="modal-body__info-loaction">${data.city},${data.country}</p>
             <p class="modal-body__info-person">${data.age},${data.gender}</p>
+            <p class="modal-body__info-hb">remain to HB: <span class="hb"></span></p>
             <a class="modal-body__info-mail" href="#">${data.email}</a>
             <p class="modal-body__info-phone">${data.phone}</p>
         </div>
         <div class="clear"></div>
         <div class="modal-body__text-info">
             <p class="modal-body__text-info-add">${data.note}</p>
-            <a class="modal-body__text-info-map" href="#">toggle map</a>
+            ${map}
         </div>
 
     </div>

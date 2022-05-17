@@ -97,4 +97,44 @@ const sortByAge = (data) => {
     const resultArr = [...data];
     return resultArr.sort((a, b) => a.age > b.age ? 1 : -1);
 }
-export { getId, randomInteger, getFavorite, transformData, sortByStr, sortByAge, daysLeft };
+
+// var text = document.querySelector('#text');
+
+// timer();
+// setInterval(timer, 1000);
+
+function timer(text, d1, d2) {
+    var now = new Date();
+    var target = new Date(now.getFullYear(), Number(d1), Number(d2), 0, 0, 0);
+    console.log(target);
+    console.log(d1);
+    console.log(d2);
+    var diff = Math.ceil((target - now) / 1000);
+
+    var days = extract(diff, 60 * 60 * 24);
+    var hours = extract(days.diff, 60 * 60);
+    var minutes = extract(hours.diff, 60);
+    var seconds = extract(minutes.diff, 1);
+
+    text.innerHTML = addZero(days.value) + ' '
+        + addZero(hours.value)
+        + ':' + addZero(minutes.value)
+        + ':' + addZero(seconds.value);
+
+}
+
+function extract(diff, formula) {
+    var value = Math.floor(diff / formula);
+    var diff = diff % formula;
+
+    return { value: value, diff: diff };
+}
+
+function addZero(num) {
+    if (num <= 9) {
+        num = '0' + num;
+    }
+
+    return num;
+}
+export { getId, randomInteger, getFavorite, transformData, sortByStr, sortByAge, daysLeft, timer };
